@@ -1,0 +1,2 @@
+"age","gender","signed_in","avg_click","avg_impression","max_click","max_impression"
+29.4825506445,0.367037415938,5.00731609956,0.0925942487692,0.700929890651,4,20
