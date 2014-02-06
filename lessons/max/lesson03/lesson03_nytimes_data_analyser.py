@@ -25,6 +25,7 @@ Loop through numbers 1 to 30 to gather nyt1.csv to nyt30.csv
 append to final_df DataFrame
 """
 for i in range(1,31):
+#for i in range(1,5):
 	df = pd.read_csv('./nyt/nyt'+str(i)+'.csv')
 	final_df = final_df.append(df)
 
@@ -36,14 +37,14 @@ final_df['1'] = 1
 
 #perform some stats
 df_mean = final_df[ ['Age', 'Gender', 'ctr'] ].groupby(['Age','Gender']).agg([mean])
-df_count = final_df[['Age','Gender','1']].groupby(['Age','Gender']).agg([sum])
+df_count = final_df[['Age','Gender']].groupby(['Age','Gender'])
 #print dfg.describe()
 
 print final_df[:10]
 print df_mean[:10]
-print df_count.count()
+print df_count.size()
 
 #print results
-final_df.to_csv('nytimes_aggregation.csv')
-df_mean.to_csv('nytimes_mean_stat.csv')
-df_count.to_csv('nytimes_count_stat.csv')
+#final_df.to_csv('nytimes_aggregation.csv')
+#df_mean.to_csv('nytimes_mean_stat.csv')
+df_count.size().to_csv('nytimes_count_stat.csv')
