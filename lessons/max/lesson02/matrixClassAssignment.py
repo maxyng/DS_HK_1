@@ -52,3 +52,26 @@ print VectorMatrix(test3,test1)
 
 print isIdentityMatrix(test1)
 print isIdentityMatrix(test2)
+
+"""
+ Adding numpy library from lesson 3 to compare speed with original implementation
+also test matrix multiply test
+"""
+from numpy import array, matrix,dot,eye
+
+a1 = array([ [1, 2], [3, 4] ])
+a2 = array([ [1, 3], [2, 4] ])
+m1 = matrix('1 2; 3 4')
+m2 = matrix('1 3; 2 4')
+a1 * a2
+m1 * m2
+
+print 'isIdentityMatrix with eye(5): '+ str(isIdentityMatrix(eye(5)))
+print 'isIdentityMatrix with eye(6): '+ str(isIdentityMatrix(eye(6)))
+
+import timeit as t
+print
+print 'Time to run numpy.dot on a1 and a2'
+print t.timeit('dot(a1, a2)', setup="from __main__ import dot, a1, a2", number = 100000)
+print 'Time to run my python implementation on a1 and a2'
+print t.timeit('MatrixMult(a1,a2)',setup="from __main__ import MatrixMult, a1, a2",number = 100000)
