@@ -26,7 +26,7 @@ append to final_df DataFrame
 """
 for i in range(1,31):
 #for i in range(1,5):
-	df = pd.read_csv('./nyt/nyt'+str(i)+'.csv')
+	df = pd.read_csv('../../../data/nyt/nyt'+str(i)+'.csv')
 	final_df = final_df.append(df)
 
 #Change 1 to Male, 0 to Female mapping in dataframe
