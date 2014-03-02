@@ -23,7 +23,14 @@ logm.score(input, good)
 
 beer_type = ['Ale', 'Stout', 'IPA', 'Lager']
 
-#for i in beer_type:
-#	check = re.search(str(i), str(beer['Type'])) != None
 for t in beer_type:
 	beer[t] = beer['Type'].str.contains(t) * 1
+
+input = beer[ ['Ale', 'Stout', 'IPA', 'Lager'] ].values
+y = beer['Good'].values
+
+logm.fit(input, y)
+logm.predict(input)
+logm.score(input,y)
+
+logm.set_params(penalty = 'l1')
