@@ -7,25 +7,8 @@ lemon_training = pd.read_csv('C:\datascience\data\class\lemonsClassificationData
 lemon_training =lemon_training.fillna(0)
 
 isBad = lemon_training['IsBadBuy']
-lemon_training = lemon_training.drop('RefId',1)
-lemon_training = lemon_training.drop('IsBadBuy',1)
-lemon_training = lemon_training.drop('PurchDate',1)
-lemon_training = lemon_training.drop('Auction',1)
-lemon_training = lemon_training.drop('Make',1)
-lemon_training = lemon_training.drop('Model',1)
-lemon_training = lemon_training.drop('Trim',1)
-lemon_training = lemon_training.drop('SubModel',1)
-lemon_training = lemon_training.drop('Color',1)
-lemon_training = lemon_training.drop('Transmission',1)
-lemon_training = lemon_training.drop('WheelTypeID',1)
-lemon_training = lemon_training.drop('WheelType',1)
-lemon_training = lemon_training.drop('Nationality',1)
-lemon_training = lemon_training.drop('Size',1)
-lemon_training = lemon_training.drop('AUCGUART',1)
-lemon_training = lemon_training.drop('BYRNO',1)
-lemon_training = lemon_training.drop('VNZIP1',1)
-lemon_training = lemon_training.drop('VNST',1)
-lemon_training = lemon_training.drop('WarrantyCost',1)
+lemon_training = lemon_training.drop(['RefId','IsBadBuy','PurchDate','Auction','Make','Model','Trim','SubModel','Color','Transmission','WheelTypeID','WheelType','Nationality','TopThreeAmericanName','PRIMEUNIT','Size','AUCGUART','BYRNO','VNZIP1','VNST','WarrantyCost'],1)
+
 
 clf = tree.DecisionTreeClassifier()
 clf.fit(lemon_training, isBad)
