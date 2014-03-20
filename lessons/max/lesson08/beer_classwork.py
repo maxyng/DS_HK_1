@@ -15,10 +15,7 @@ def good(x):
 
 beer['Good'] = beer['WR'].apply(good)
 
-beer = beer.drop('Rank',1)
-beer = beer.drop('Name',1)
-beer = beer.drop('Brewery',1)
-beer = beer.drop('Type',1)
+beer = beer.drop(['Rank','Name','Brewery','Type'],1)
 numForTraining = len(beer) * 0.7
 
 trainingSet_X = beer[:numForTraining]
