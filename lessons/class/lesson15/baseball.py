@@ -18,8 +18,11 @@ bases a player
 base = pd.read_csv('https://raw.github.com/ga-students/DS_HK_1/gh-pages/data/class/baseballRegressionData/baseball.csv')
 
 # Select numerical feature
-base = pd.DataFrame(base, columns=["HR", "RBI", 'R', "G", "SB", "salary", 'height', 'weight', 'yearID'])
+features = base["HR", "RBI", 'R', "G", "SB","X2B","X3B","CS","BB","SO", "salary", 'height', 'weight', 'yearID']
 
+base_reduced = base[features - ['salary']]
+
+base_drop = base_reduced.dropna()
 '''
 Fill null values with mean of each columns: The reason I chose this
 strategy was because I did not want to drop rows due to null values,

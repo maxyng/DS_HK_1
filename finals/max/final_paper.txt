@@ -1,0 +1,64 @@
+y <- qnorm(x,mean=3,sd=0.1)
+plot(x,y)
+
+
+Overview of problem and hypothesis
+Overview of data
+Modeling techniques used and why
+What decisions your findings allow you to make.
+
+
+
+Description of problem and hypothesis.
+--------------------------------
+
+The problem to tackle for my final project is from an ongoing kaggle competition.  The official description is below.
+
+"The Rotten Tomatoes movie review dataset is a corpus of movie reviews used for sentiment analysis, originally collected by Pang and Lee [1]. In their work on sentiment treebanks, Socher et al. [2] used Amazon's Mechanical Turk to create fine-grained labels for all parsed phrases in the corpus. This competition presents a chance to benchmark your sentiment-analysis ideas on the Rotten Tomatoes dataset. You are asked to label phrases on a scale of five values: negative, somewhat negative, neutral, somewhat positive, positive. Obstacles like sentence negation, sarcasm, terseness, language ambiguity, and many others make this task very challenging."
+
+In my words, the problem is to be able to judge if the review written is giving a positive or negative opinion on the film based on any key words that would determine if the reviewer thinks highly of the film or not.
+
+What I feel is, there will be words that greatly determine if the opinion is positive or negative and sarcastic adjectives will not sway the analysis greatly.
+
+Detailed description your data set.
+--------------------------------
+
+The data provided by Kaggle does not have many features.  There are only four features:
+
+PhraseId 
+SentenceId
+Phrase
+Sentiment
+
+The unique identifier is "PhraseId" to distinguish the different rows.  This way it's being distinguished is by a numerical sequential number that increments by 1.  This is a standard for identifying each sentence uniquely.  
+
+The SentenceId is what makes this dataset special.  It is what groups the different rows together so the data scientist knows they belong to each other.  There is a main sentence that is broken up into phrases which appears to be randomly broken up.  One very unique thing about the phrases is that when the "'s" is written, there is a space between the word and "'s" causing string tokenizers to misinterpret "'s" as a single word.  There were over thirteen thousand instances of "'s" singilarily appearing.  Commas and other punctuation symbols also appear in the dataset.
+
+The sentiment is the score the reviewer put along with the descriptive sentence describing their feeling of the film.  The mapping is as follows
+
+negative: 0
+somewhat negative: 1
+neutral: 2
+somewhat positive: 3
+positive: 4
+
+There are 156060 rows for training data and 222352 rows for test data.
+
+How did you decide what features to use in your analysis?
+--------------------------------
+
+Since I only have 4 features, there isn't any drastic reduction of features in my dataset.  The PhraseId was removed because it provides no value to the data in this application.
+
+What challenges did you face in terms of obtaining and organizing the data?
+--------------------------------
+
+
+
+Describe what kinds of statistical methods you used, and perhaps others you considered but did not use, and how you decided what to use.
+--------------------------------
+
+
+
+What business applications do your findings have?
+--------------------------------
+
