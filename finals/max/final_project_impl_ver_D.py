@@ -15,8 +15,8 @@ def classify_phrase(phrase):
 	return classifier.classify(word_feats(phrase))
 
 #load data (tsv)
-train_base = pd.read_csv('./sentimental_rotton_tomato/train.tsv',sep='\t')
-test_base = pd.read_csv('./sentimental_rotton_tomato/test.tsv',sep='\t')
+train_base = pd.read_csv('../../data/max/sentiment/train.tsv',sep='\t')
+test_base = pd.read_csv('../../data/max/sentiment/test.tsv',sep='\t')
 
 #extract 'Phrase' and 'Sentiment'
 train_base = split_phrase(train_base)
