@@ -3,7 +3,7 @@ from sklearn import naive_bayes, cross_validation, metrics
 from sklearn.feature_extraction.text import CountVectorizer
 
 #load data (tsv)
-base = pd.read_csv('./sentimental_rotton_tomato/train.tsv',sep='\t')
+base = pd.read_csv('../../data/max/sentiment/train.tsv',sep='\t')
 
 base['str_split'] = ''
 base['str_length'] = 0
@@ -25,7 +25,7 @@ print cross_validation.cross_val_score(naive_bayes.BernoulliNB(), X_train.toarra
 fpr, tpr, thresholds = metrics.roc_curve(result, model.predict(X_train.toarray()), pos_label=1)
 print metrics.auc(fpr, tpr)
 
-#testset = pd.read_csv('./sentimental_rotton_tomato/test.tsv',sep='\t')
+# testset = pd.read_csv('../../data/max/sentiment/test.tsv',sep='\t')
 #testset = testset.drop(['PhraseId','SentenceId'],axis=1)
 
 #X_test = vectorizer.fit_transform(testset.Phrase)
