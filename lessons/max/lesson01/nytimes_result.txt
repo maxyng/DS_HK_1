@@ -1,0 +1,3 @@
+Click Through Rate : 0.0184917921953
+Average Age: 42.0620536201
+Maximum age: 108
