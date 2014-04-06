@@ -1,7 +1,10 @@
 import pandas as pd
-from sklearn.tree import DecisionTreeClassifier
+import nltk.classify.util
+from nltk import DecisionTreeClassifier
 
 
+def word_feats(words):
+	return dict([(word,True) for word in words])
 
 def split_phrase(dataset):
 	dataset['str_split'] = ''
@@ -17,5 +20,11 @@ test_base = pd.read_csv('./sentimental_rotton_tomato/test.tsv',sep='\t')
 train_base = split_phrase(train_base)
 test_base = split_phrase(test_base)
 
+trainfeats = [(word_feats(train_base['str_split'][f]),train_base['Sentiment'][f]) for f in range(train_base.shape[0])]
 
-clf = DecisionTreeClassifier().fit(train_base['str_split'], train_base['Sentiment'])
+testfeats = [(word_feats(test_base['str_split'][f])) for f in range(test_base.shape[0])]
+
+classifier = nltk.DecisionTreeClassifier.train(trainfeats)
+nltk.classify.accuracy(classifier, testfeats)
+
+#clf = DecisionTreeClassifier().fit(list(train_base['Phrase']), train_base['Sentiment'])
