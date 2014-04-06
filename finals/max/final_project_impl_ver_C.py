@@ -49,8 +49,8 @@ for x in range(10):
 		#print words + ' ' + str(result[x])
 		X_test_splitwords.append(words)
 
-
 testset = testset.drop(['PhraseId','SentenceId'],axis=1)
+
 
 X_test = vectorizer.fit_transform(X_test_splitwords)
 predictions = model.predict_proba(X_test)[:,1]
