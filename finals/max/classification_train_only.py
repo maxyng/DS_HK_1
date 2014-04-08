@@ -72,23 +72,36 @@ for x in range(base.shape[0]):
 
 #base = base[base.str_length > 0]
 
-X_splitwords = []
-Y_result = []
-for x in range(base.shape[0]):
-#for x in range(10):
+X_train_splitwords = []
+X_test_splitwords = []
+Y_train_result = []
+Y_test_result = []
+
+percent70 = int(10000 *0.7)
+for x in range(10000):
     for words in base.str_split[x]:
         #print words + ' ' + str(result[x])
-        X_splitwords.append(words)
-        Y_result.append(base['Sentiment'][x])
+        X_train_splitwords.append(words)
+        Y_train_result.append(base['Sentiment'][x])
+
+for x in range(10000,15000):
+    for words in base.str_split[x]:
+        #print words + ' ' + str(result[x])
+        X_test_splitwords.append(words)
+        Y_test_result.append(base['Sentiment'][x])
+
 
 base = base.drop(['PhraseId','SentenceId','Sentiment','str_length'],axis=1)
 
 vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5,stop_words='english')
-X_train = vectorizer.fit_transform(X_splitwords)
 
+X_train = vectorizer.fit_transform(X_train_splitwords)
+X_test = vectorizer.transform(X_test_splitwords)
 
+#train,test data result
+Y_result, y_test = Y_train_result, Y_test_result
 
-
+"""
 ####
 #Test data discarded temporarily
 ####
@@ -106,7 +119,7 @@ for x in range(10):
     for words in testset.str_split[x]:
         #print words + ' ' + str(result[x])
         X_test_splitwords.append(words)
-
+"""
 
 t0 = time()
 duration = time() - t0
@@ -116,7 +129,7 @@ print()
 
 print("Extracting features from the test dataset using the same vectorizer")
 t0 = time()
-X_test = vectorizer.transform(X_test_splitwords)
+
 duration = time() - t0
 #print("done in %fs at %0.3fMB/s" % (duration, data_test_size_mb / duration))
 print("n_samples: %d, n_features: %d" % X_test.shape)
@@ -157,9 +170,8 @@ def benchmark(clf):
     test_time = time() - t0
     print("test time:  %0.3fs" % test_time)
 
-#    score = metrics.f1_score(y_test, pred)
-    score = 1.2
-#    print("f1-score:   %0.3f" % score)
+    score = metrics.f1_score(y_test, pred)
+    print("f1-score:   %0.3f" % score)
 
     if hasattr(clf, 'coef_'):
         print("dimensionality: %d" % clf.coef_.shape[1])
@@ -173,14 +185,14 @@ def benchmark(clf):
                       % (category, " ".join(feature_names[top10]))))
         print()
 
-#    if opts.print_report:
-#        print("classification report:")
-#        print(metrics.classification_report(y_test, pred,
-#                                            target_names=categories))
+    if opts.print_report:
+        print("classification report:")
+        print(metrics.classification_report(y_test, pred,
+                                            target_names=categories))
 
-#    if opts.print_cm:
-#        print("confusion matrix:")
-#        print(metrics.confusion_matrix(y_test, pred))
+    if opts.print_cm:
+        print("confusion matrix:")
+        print(metrics.confusion_matrix(y_test, pred))
 
     print()
     clf_descr = str(clf).split('(')[0]
@@ -192,7 +204,7 @@ for clf, name in (
         (RidgeClassifier(tol=1e-2, solver="lsqr"), "Ridge Classifier"),
         (Perceptron(n_iter=50), "Perceptron"),
         (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive"),
-        (KNeighborsClassifier(n_neighbors=10), "kNN")):
+        (KNeighborsClassifier(n_neighbors=100), "kNN")):
     print('=' * 80)
     print(name)
     results.append(benchmark(clf))

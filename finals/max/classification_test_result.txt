@@ -1,0 +1,193 @@
+
+
+user@USER-PC /c/datascience/finals/max (gh-pages)
+$ python classification_test.py
+n_samples: 1124158, n_features: 14956
+
+Extracting features from the test dataset using the same vectorizer
+n_samples: 35, n_features: 14956
+
+================================================================================
+
+Ridge Classifier
+________________________________________________________________________________
+
+Training:
+RidgeClassifier(alpha=1.0, class_weight=None, copy_X=True, fit_intercept=True,
+        max_iter=None, normalize=False, solver=lsqr, tol=0.01)
+train time: 2.744s
+test time:  0.000s
+dimensionality: 14956
+density: 1.000000
+
+
+================================================================================
+
+Perceptron
+________________________________________________________________________________
+
+Training:
+Perceptron(alpha=0.0001, class_weight=None, eta0=1.0, fit_intercept=True,
+      n_iter=50, n_jobs=1, penalty=None, random_state=0, shuffle=False,
+      verbose=0, warm_start=False)
+train time: 7.677s
+test time:  0.000s
+dimensionality: 14956
+density: 0.215071
+
+
+================================================================================
+
+Passive-Aggressive
+________________________________________________________________________________
+
+Training:
+PassiveAggressiveClassifier(C=1.0, fit_intercept=True, loss=hinge, n_iter=50,
+              n_jobs=1, random_state=None, shuffle=False, verbose=0,
+              warm_start=False)
+train time: 8.379s
+test time:  0.000s
+dimensionality: 14956
+density: 0.939061
+
+
+================================================================================
+
+kNN
+________________________________________________________________________________
+
+Training:
+KNeighborsClassifier(algorithm=auto, leaf_size=30, metric=minkowski,
+           n_neighbors=10, p=2, weights=uniform)
+train time: 0.244s
+test time:  1.748s
+
+================================================================================
+
+L2 penalty
+________________________________________________________________________________
+
+Training:
+LinearSVC(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+     intercept_scaling=1, loss=l2, multi_class=ovr, penalty=l2,
+     random_state=None, tol=0.001, verbose=0)
+train time: 32.703s
+test time:  0.000s
+dimensionality: 14956
+density: 1.000000
+
+
+________________________________________________________________________________
+
+Training:
+SGDClassifier(alpha=0.0001, class_weight=None, epsilon=0.1, eta0=0.0,
+       fit_intercept=True, l1_ratio=0.15, learning_rate=optimal,
+       loss=hinge, n_iter=50, n_jobs=1, penalty=l2, power_t=0.5,
+       random_state=None, rho=None, shuffle=False, verbose=0,
+       warm_start=False)
+train time: 9.206s
+test time:  0.000s
+dimensionality: 14956
+density: 0.747486
+
+
+================================================================================
+
+L1 penalty
+________________________________________________________________________________
+
+Training:
+LinearSVC(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+     intercept_scaling=1, loss=l2, multi_class=ovr, penalty=l1,
+     random_state=None, tol=0.001, verbose=0)
+train time: 2.155s
+test time:  0.000s
+dimensionality: 14956
+density: 0.936280
+
+
+________________________________________________________________________________
+
+Training:
+SGDClassifier(alpha=0.0001, class_weight=None, epsilon=0.1, eta0=0.0,
+       fit_intercept=True, l1_ratio=0.15, learning_rate=optimal,
+       loss=hinge, n_iter=50, n_jobs=1, penalty=l1, power_t=0.5,
+       random_state=None, rho=None, shuffle=False, verbose=0,
+       warm_start=False)
+train time: 9.197s
+test time:  0.000s
+dimensionality: 14956
+density: 0.000160
+
+
+================================================================================
+
+Elastic-Net penalty
+________________________________________________________________________________
+
+Training:
+SGDClassifier(alpha=0.0001, class_weight=None, epsilon=0.1, eta0=0.0,
+       fit_intercept=True, l1_ratio=0.15, learning_rate=optimal,
+       loss=hinge, n_iter=50, n_jobs=1, penalty=elasticnet, power_t=0.5,
+       random_state=None, rho=None, shuffle=False, verbose=0,
+       warm_start=False)
+train time: 10.187s
+test time:  0.001s
+dimensionality: 14956
+density: 0.000254
+
+
+================================================================================
+
+NearestCentroid (aka Rocchio classifier)
+________________________________________________________________________________
+
+Training:
+NearestCentroid(metric=euclidean, shrink_threshold=None)
+train time: 0.265s
+test time:  0.001s
+
+================================================================================
+
+Naive Bayes
+________________________________________________________________________________
+
+Training:
+MultinomialNB(alpha=0.01, class_prior=None, fit_prior=True)
+train time: 0.380s
+test time:  0.000s
+dimensionality: 14956
+density: 1.000000
+
+
+________________________________________________________________________________
+
+Training:
+BernoulliNB(alpha=0.01, binarize=0.0, class_prior=None, fit_prior=True)
+train time: 0.385s
+test time:  0.002s
+dimensionality: 14956
+density: 1.000000
+
+
+================================================================================
+
+LinearSVC with L1-based feature selection
+________________________________________________________________________________
+
+Training:
+L1LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+      intercept_scaling=1, loss=l2, multi_class=ovr, penalty=l2,
+      random_state=None, tol=0.0001, verbose=0)
+train time: 1665.388s
+test time:  0.002s
+dimensionality: 14952
+density: 0.999960
+
+
+
+user@USER-PC /c/datascience/finals/max (gh-pages)
+$
+
+user@USER-PC /c/datascience/finals/max (gh-pages)
+$

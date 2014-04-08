@@ -1,6 +1,3 @@
-y <- qnorm(x,mean=3,sd=0.1)
-plot(x,y)
-
 
 Overview of problem and hypothesis
 Overview of data
@@ -18,7 +15,7 @@ The problem to tackle for my final project is from an ongoing kaggle competition
 
 In my words, the problem is to be able to judge if the review written is giving a positive or negative opinion on the film based on any key words that would determine if the reviewer thinks highly of the film or not.
 
-What I feel is, there will be words that greatly determine if the opinion is positive or negative and sarcastic adjectives will not sway the analysis greatly.
+What I feel is, there will be words that greatly determine if the opinion given on the film is positive or negative and sarcastic adjectives will not sway the analysis greatly.
 
 Detailed description your data set.
 --------------------------------
@@ -52,11 +49,27 @@ Since I only have 4 features, there isn't any drastic reduction of features in m
 What challenges did you face in terms of obtaining and organizing the data?
 --------------------------------
 
+The biggest challenge faced with this data was being able to familiarize myself with the python tools to accomplish the data changes I wanted.  The removal of unneeded features such as the SentenceId, PhraseId and separate Sentiment were not too difficult.  Accomplishing the parsing of the words in each phrase was the most challenging part.  Understanding what the libraries outputted into what datatype was challenging as each datatype class has their own functions that needed a deeper understanding to better manage the data.
+
+Further additions would be to take out stop words in the parsed out phrases as they are not needed and could overfit my results.
 
 
 Describe what kinds of statistical methods you used, and perhaps others you considered but did not use, and how you decided what to use.
 --------------------------------
 
+My data set had me conclude that the best model was the Naive Bayes model to solve my sentiment analysis problem.   Throught he libraries provided in python, I had the ability to use different types of Naive Bayes formulas and compare the results.   The attempts I made were as follows.
+
+Attempt A
+--
+naive_bayes.MultinomialNB on the whole phrase.  No parsing of the individual words into the model.
+
+Attempt B
+--
+Gaussian Model didn't work well and caused the machine to crash my python program.  It was found out later that this model cannot handle sparse data very well so it was unfit for my type of data.  This was an attempt to better understand these programs and try new things so I was not discouraged by this finding.
+
+Attempt C
+--
+naive_bayes.BernoulliNB on the whole phrase.  No parsing of the individual words into the model.
 
 
 What business applications do your findings have?

@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn import naive_bayes, cross_validation, metrics
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
 #load data (tsv)
 base = pd.read_csv('./sentimental_rotton_tomato/train.tsv',sep='\t')
@@ -16,7 +16,8 @@ base = base.drop(['PhraseId','SentenceId','Sentiment','str_length'],axis=1)
 
 # Try the TfidfVectorizer instead
 # http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
-vectorizer = CountVectorizer()
+vectorizer = vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5,
+                             stop_words='english')
 X_train = vectorizer.fit_transform(base.Phrase)
 
 model = naive_bayes.MultinomialNB().fit(X_train, list(result))
