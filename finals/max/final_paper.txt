@@ -71,6 +71,17 @@ Attempt C
 --
 naive_bayes.BernoulliNB on the whole phrase.  No parsing of the individual words into the model.
 
+Attempt D
+--
+ nltk.classify NaiveBayesClassifier
+
+Attempt E
+--
+DecisionTreeClassifier
+
+Attempt classification comparison
+--
+
 
 What business applications do your findings have?
 --------------------------------
